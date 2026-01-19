@@ -6,7 +6,7 @@ Non-24 is a chronic circadian rhythm disorder where the internal body clock runs
 
 The project was a trial to see how useful FFT analysis could be in detecting Non-24 cycles and then adjusting the detected period length as new data was added. It works well at the former and can return acceptable results with only a couple weeks of sleep data. Of course, the accuracy and confidence will improve as more data is provided. However, this type of algorithm did not prove useful for adjusting results on a continuing basis as new data was included.
 
-Provides two versions of with different analysis algorithms with mostly the same input arguments and similar output fields. Both scripts can create PNG plots of the spectrum with dominant periods labeled or period results as either CSV or JSON (for use in the post-processing program of your choice). Period results are also printed to stdout along with status messages. The two scripts both do a good job at detecting period lengths, although there are some minor differences with how results are analyzed and presented that might make you want to choose one or the other. I generally prefer Lomb-Scargle, but you should test data with both before deciding which is best for you.
+Provides two versions using different analysis algorithms with mostly the same input arguments and similar output fields. Both scripts can create PNG plots of the spectrum with dominant periods labeled or period results as either CSV or JSON (for use in the post-processing program of your choice). Period results are also printed to stdout along with status messages. The two scripts both do a good job at detecting period lengths, although there are some minor differences with how results are analyzed and presented that might make you want to choose one or the other. I generally prefer Lomb-Scargle, but you should test data with both before deciding which is best for you.
 
 These scripts should only be used for scientific purposes. Although the results may give some indication of Non-24 status, they are not fully or widely tested and should not be solely used for medical diagnostics.
 
@@ -110,6 +110,10 @@ Spectral entropy measures how organized vs. chaotic the sleep pattern is on a lo
 | 0.90 - 0.95 | Very noisy - may still have detectable peaks but with significant irregularity |
 | > 0.95 | Essentially random - no clear periodic pattern |
 
+#### Example Plot
+
+![FFT Analysis Example Plot](fft_analysis.png)
+
 ---
 
 ### Lomb-Scargle: non24_ls_analysis.py
@@ -168,6 +172,10 @@ python non24_ls_analysis.py sleep_data.csv -jf | another_script.py
 - **is_harmonic**: Whether this peak is likely a harmonic of another stronger peak
 - **harmonic_of**: If harmonic, the period of the fundamental frequency
 - **harmonic_fraction**: If harmonic, the ratio to the fundamental
+
+#### Example Plot
+
+![Lomb-Scargle Analysis Example Plot](lomb_scargle_analysis.png)
 
 ## Interpreting Results
 
