@@ -145,17 +145,12 @@ Performs **Lomb-Scargle periodogram** analysis on sleep data. Unlike FFT, this m
 
 Output only JSON results and set the analysis to use start times instead of midpoints
 ```bash
-python non24_ls_analysis.py "D:\Desktop\sleep stuff\sleep_data.csv" -j --endpoint start
+python non24_ls_analysis.py "D:\Desktop\sleep stuff\sleep_data.csv" --json --endpoint start
 ```
 
 Output JSON with the full plot data for use in another script
 ```bash
 python non24_ls_analysis.py sleep_data.csv -jf
-```
-
-Output only JSON piped into another script for interpretation/output
-```bash
-python non24_ls_analysis.py sleep_data.csv -jf | another_script.py
 ```
 
 #### Output
